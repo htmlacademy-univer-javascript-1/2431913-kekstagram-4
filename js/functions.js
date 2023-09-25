@@ -1,9 +1,8 @@
-console.log('Функция №1');
+
 // Объявляем функцию для проверки длины строки
 function checkStringLength(str, maxLength) {
   return str.length <= maxLength;
 }
-console.log('Функция №2');
 function isPalindrome(str) {
   // Нормализуем строку: убираем пробелы и приводим к нижнему регистру
   const normalizedStr = str.replace(/\s/g, '').toLowerCase();
