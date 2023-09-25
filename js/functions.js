@@ -1,4 +1,3 @@
-
 // Объявляем функцию для проверки длины строки
 function checkStringLength(str, maxLength) {
   return str.length <= maxLength;
