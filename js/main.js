@@ -29,6 +29,8 @@ const photoDescriptions = [
   // Добавьте здесь ещё описаний по вашему усмотрению
 ];
 
+const MAX_COMMENT_ID = 1000; // Максимальное значение ID для комментариев
+
 function getRandomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -52,7 +54,7 @@ function generateRandomComment() {
   const commentText = comments[randomIndex];
 
   return {
-    id: getRandomNumber(1, 1000),
+    id: getRandomNumber(1, MAX_COMMENT_ID),
     avatar: `img/avatar-${getRandomAvatarNumber()}.svg`,
     message: commentText,
     name: getRandomAuthorName(),
