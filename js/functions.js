@@ -14,4 +14,29 @@ function isPalindrome(str) {
   // Сравниваем нормализованную строку с перевернутой версией
   return normalizedStr === reversedStr;
 }
+function isMeetingWithinWorkingHours(startOfWork, endOfWork, startOfMeeting, meetingDuration) {
+  // Преобразуем входные строки в минуты для удобства сравнения
+  const startOfWorkMinutes = convertTimeToMinutes(startOfWork);
+  const endOfWorkMinutes = convertTimeToMinutes(endOfWork);
+  const startOfMeetingMinutes = convertTimeToMinutes(startOfMeeting);
+
+  // Рассчитываем время окончания встречи
+  const endOfMeetingMinutes = startOfMeetingMinutes + meetingDuration;
+
+  // Проверяем, что начало встречи и окончание встречи находятся в пределах рабочего дня
+  if (
+    startOfMeetingMinutes >= startOfWorkMinutes &&
+    endOfMeetingMinutes <= endOfWorkMinutes
+  ) {
+    return true;
+  }
+
+  return false;
+}
+
+// Вспомогательная функция для преобразования времени в минуты
+function convertTimeToMinutes(time) {
+  const [hours, minutes] = time.split(':').map(part => parseInt(part, 10));
+  return hours * 60 + minutes;
+}
 
