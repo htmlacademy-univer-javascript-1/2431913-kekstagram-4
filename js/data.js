@@ -1,13 +1,9 @@
 import { getRandomNumber, getRandomAvatarNumber, getRandomAuthorName, getRandomPhotoDescription } from './util';
 
-const MIN_AVATAR_NUMBER = 1;
-const MAX_AVATAR_NUMBER = 6;
-
 const MIN_LIKES = 15;
 const MAX_LIKES = 200;
 
 const MIN_COMMENTS_COUNT = 0;
-const MAX_COMMENTS_COUNT = 30;
 
 const MAX_COMMENT_ID = 1000; // Максимальное значение ID для комментариев
 
