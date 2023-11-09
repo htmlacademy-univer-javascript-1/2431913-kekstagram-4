@@ -1,13 +1,14 @@
-import { getRandomNumber, getRandomAvatarNumber, getRandomAuthorName, getRandomPhotoDescription } from './util';
+import { getRandomNumber, getRandomAvatarNumber, getRandomAuthorName, getRandomPhotoDescription } from './util.js';
 
 const MIN_LIKES = 15;
 const MAX_LIKES = 200;
-
+export const MIN_AVATAR_NUMBER = 1;
+export const MAX_AVATAR_NUMBER = 1;
 const MIN_COMMENTS_COUNT = 0;
-
+const MAX_COMMENTS_COUNT = 0;
 const MAX_COMMENT_ID = 1000; // Максимальное значение ID для комментариев
 
-const authorNames = ['Иван', 'Анна', 'Петр', 'Мария', 'Алексей', 'Елена', 'Дмитрий', 'Ольга', 'Сергей', 'Наталья'];
+export const authorNames = ['Иван', 'Анна', 'Петр', 'Мария', 'Алексей', 'Елена', 'Дмитрий', 'Ольга', 'Сергей', 'Наталья'];
 
 const comments = [
   'Всё отлично!',
@@ -17,8 +18,7 @@ const comments = [
   'Я поскользнулся на банановой кожуре и уронил фотоаппарат на кота и у меня получилась фотография лучше.',
   'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!',
 ];
-
-const photoDescriptions = [
+export const photoDescriptions = [
   'Красивый закат на пляже',
   'Горизонтальное излучение солнца в лесу',
   'Городской пейзаж вечером',

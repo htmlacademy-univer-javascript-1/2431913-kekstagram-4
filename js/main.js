@@ -1,10 +1,5 @@
-import { generatePhotoArray } from './data';
-
+import { generatePhotoArray } from './data.js';
+import { getRenderedCards } from './module.js';
 const NUM_PHOTOS = 25; // Количество фотографий
-
-// Функция для получения массива сгенерированных объектов
-function getGeneratedPhotos() {
-  return generatePhotoArray(NUM_PHOTOS);
-}
-
-const photos = getGeneratedPhotos();
+const photos = generatePhotoArray(NUM_PHOTOS);
+getRenderedCards();
