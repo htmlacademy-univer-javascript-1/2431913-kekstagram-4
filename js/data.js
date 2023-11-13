@@ -1,15 +1,16 @@
-import { getRandomNumber, getRandomAvatarNumber, getRandomAuthorName, getRandomPhotoDescription } from './util';
+import { getRandomNumber, getRandomAvatarNumber, getRandomAuthorName, getRandomPhotoDescription } from './util.js';
 
 const MIN_LIKES = 15;
 const MAX_LIKES = 200;
-
+const MIN_AVATAR_NUMBER = 1;
+const MAX_AVATAR_NUMBER = 1;
 const MIN_COMMENTS_COUNT = 0;
-
+const MAX_COMMENTS_COUNT = 0;
 const MAX_COMMENT_ID = 1000; // Максимальное значение ID для комментариев
 
-const authorNames = ['Иван', 'Анна', 'Петр', 'Мария', 'Алексей', 'Елена', 'Дмитрий', 'Ольга', 'Сергей', 'Наталья'];
+export const authorNames = ['Иван', 'Анна', 'Петр', 'Мария', 'Алексей', 'Елена', 'Дмитрий', 'Ольга', 'Сергей', 'Наталья'];
 
-const comments = [
+const commentsExamples = [
   'Всё отлично!',
   'В целом всё неплохо. Но не всё.',
   'Когда вы делаете фотографию, хорошо бы убирать палец из кадра. В конце концов это просто непрофессионально.',
@@ -17,8 +18,7 @@ const comments = [
   'Я поскользнулся на банановой кожуре и уронил фотоаппарат на кота и у меня получилась фотография лучше.',
   'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!',
 ];
-
-const photoDescriptions = [
+export const photoDescriptions = [
   'Красивый закат на пляже',
   'Горизонтальное излучение солнца в лесу',
   'Городской пейзаж вечером',
@@ -29,8 +29,8 @@ const photoDescriptions = [
 ];
 
 export function generateRandomComment() {
-  const randomIndex = getRandomNumber(0, comments.length - 1);
-  const commentText = comments[randomIndex];
+  const randomIndex = getRandomNumber(0, commentsExamples.length - 1);
+  const commentText = commentsExamples[randomIndex];
 
   return {
     id: getRandomNumber(1, MAX_COMMENT_ID),
@@ -71,3 +71,4 @@ export function generatePhotoArray(numPhotos) {
 
   return photoArray;
 }
+export {MIN_AVATAR_NUMBER, MAX_AVATAR_NUMBER};
