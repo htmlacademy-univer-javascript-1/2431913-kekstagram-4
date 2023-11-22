@@ -1,4 +1,4 @@
-import { getRandomNumber, getRandomAvatarNumber, getRandomAuthorName, getRandomPhotoDescription } from './util.js';
+import { getRandomNumber, getRandomPhotoDescription } from './util.js';
 
 const MIN_LIKES = 15;
 const MAX_LIKES = 200;
@@ -6,7 +6,7 @@ const MIN_AVATAR_NUMBER = 1;
 const MAX_AVATAR_NUMBER = 1;
 const MIN_COMMENTS_COUNT = 0;
 const MAX_COMMENTS_COUNT = 30;
-const MAX_COMMENT_ID = 1000; // Максимальное значение ID для комментариев
+
 
 export const authorNames = ['Иван', 'Анна', 'Петр', 'Мария', 'Алексей', 'Елена', 'Дмитрий', 'Ольга', 'Сергей', 'Наталья'];
 
