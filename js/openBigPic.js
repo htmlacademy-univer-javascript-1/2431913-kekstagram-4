@@ -37,9 +37,9 @@ function openPicture(evt, url, description, likes, comments) {
   document.body.classList.add('modal-open');
 
   openedPicture
-    .querySelector('.big-picture__cancel')
-    .addEventListener('click', closePicture);
-  document.addEventListener('keydown', onDocumentKeydown);
+    .querySelector(".big-picture__cancel")
+    .addEventListener("click", closePicture);
+  document.addEventListener("keydown", onDocumentKeydown);
 }
 
 function closePicture(evt) {
