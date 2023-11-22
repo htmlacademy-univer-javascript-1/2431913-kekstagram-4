@@ -37,16 +37,16 @@ function openPicture(evt, url, description, likes, comments) {
   document.body.classList.add('modal-open');
 
   openedPicture
-    .querySelector(".big-picture__cancel")
-    .addEventListener("click", closePicture);
-  document.addEventListener("keydown", onDocumentKeydown);
+    .querySelector('.big-picture__cancel')
+    .addEventListener('click', closePicture);
+  document.addEventListener('keydown', onDocumentKeydown);
 }
 
 function closePicture(evt) {
-  document.body.classList.remove("modal-open");
-  document.querySelector(".big-picture").classList.add("hidden");
-  evt.target.removeEventListener("click", closePicture);
-  document.removeEventListener("keydown", onDocumentKeydown);
+  document.body.classList.remove('modal-open');
+  document.querySelector('.big-picture').classList.add('hidden');
+  evt.target.removeEventListener('click', closePicture);
+  document.removeEventListener('keydown', onDocumentKeydown);
 }
 
 export { openPicture };
