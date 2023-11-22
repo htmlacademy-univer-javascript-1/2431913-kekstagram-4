@@ -1,10 +1,10 @@
-const commentTemplate = document.querySelector(".social__comment");
-document.querySelector(".social__comment-count").classList.add("hidden")
-document.querySelector(".comments-loader").classList.add("hidden")
+const commentTemplate = document.querySelector('.social__comment');
+document.querySelector('.social__comment-count').classList.add('hidden');
+document.querySelector('.comments-loader').classList.add('hidden');
 
 
 const onDocumentKeydown = (evt) => {
-  if (evt.key === "Escape") {
+  if (evt.key === 'Escape') {
     closePicture(evt);
   }
 };
@@ -13,8 +13,8 @@ const loadAllComments = (commentsContainer, comments) => {
   const commentsFragment = document.createDocumentFragment();
   for (let i = 0; i < comments.length; ++i) {
     const comment = commentTemplate.cloneNode(true);
-    comment.querySelector(".social__picture").src = comments[i].avatar;
-    comment.querySelector(".social__picture").alt = comments[i].name;
+    comment.querySelector('.social__picture').src = comments[i].avatar;
+    comment.querySelector('.social__picture').alt = comments[i].name;
     comment.querySelector(".social__text").textContent = comments[i].message;
     commentsFragment.append(comment);
   }
