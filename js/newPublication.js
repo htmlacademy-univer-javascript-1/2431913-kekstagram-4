@@ -5,6 +5,7 @@ const imageOverlay = uploadForm.querySelector('.img-upload__overlay.hidden');
 const closeButton = uploadForm.querySelector('.img-upload__cancel');
 const hashtagsField = uploadForm.querySelector('.text__hashtags');
 const descriptionField = uploadForm.querySelector('.text__description');
+const submitBtn = uploadForm.querySelector('#upload-submit');
 
 const validationForm = /^#[0-9a-zа-яё]{1,19}$/i;
 
@@ -17,12 +18,19 @@ const pristine = new Pristine(uploadForm, {
   errorTextClass: 'img-upload__error'
 });
 
-const validateHashtagsCount = (value) => {
-  return value.trim().split(' ').length <= 5;
-};
+const validateHashtagsCount = (value) => value.trim().split(' ').length <= 5;
 
 const validateHashtagsUniqueness = (value) => {
-  return value.trim().split(' ').includes(value.trim()) === false;
+  const hashtags = value.split(' ');
+  const hashTagMap = {};
+  for (let i = 0; i < hashtags.length; i++) {
+    const hashtag = hashtags[i];
+    if (hashtag in hashTagMap) {
+      return false;
+    }
+    hashTagMap[hashtag] = true;
+  }
+  return true;
 };
 
 const validHashtages = (value) => {
@@ -56,9 +64,7 @@ pristine.addValidator(
   'Ошибка хештега'
 );
 
-const validateDescription = (value) => {
-  return value.trim().length <= 140;
-};
+const validateDescription = (value) => value.trim().length <= 140;
 
 pristine.addValidator(
   descriptionField,
@@ -86,3 +92,25 @@ const openOverlay = (evt) =>{
 };
 
 uploadInput.addEventListener('change', openOverlay);
+
+hashtagsField.addEventListener('input', (evt) => {
+  evt.preventDefault();
+  const isValid = pristine.validate();
+  if (!isValid) {
+    submitBtn.setAttribute('disabled', true);
+  }
+  else{
+    submitBtn.removeAttribute('disabled');
+  }
+});
+
+descriptionField.addEventListener('input', (evt) => {
+  evt.preventDefault();
+  const isValid = pristine.validate();
+  if (!isValid) {
+    submitBtn.setAttribute('disabled', true);
+  }
+  else{
+    submitBtn.removeAttribute('disabled');
+  }
+});
