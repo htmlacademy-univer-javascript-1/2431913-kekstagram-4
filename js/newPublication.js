@@ -104,6 +104,7 @@ hashtagsField.addEventListener('input', (evt) => {
   }
 });
 
+
 descriptionField.addEventListener('input', (evt) => {
   evt.preventDefault();
   const isValid = pristine.validate();
