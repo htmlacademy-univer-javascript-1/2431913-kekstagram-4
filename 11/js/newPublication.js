@@ -1,4 +1,5 @@
 import { onDocumentKeydown } from './util.js';
+import { MAX_HASHTAGS_COUNT, MAX_DESCRIPTION_LENGTH } from './data.js';
 const uploadForm = document.querySelector('.img-upload__form');
 const uploadInput = uploadForm.querySelector('.img-upload__input');
 const imageOverlay = uploadForm.querySelector('.img-upload__overlay.hidden');
@@ -18,7 +19,7 @@ const pristine = new Pristine(uploadForm, {
   errorTextClass: 'img-upload__error'
 });
 
-const validateHashtagsCount = (value) => value.trim().split(' ').length <= 5;
+const validateHashtagsCount = (value) => value.trim().split(' ').length <= MAX_HASHTAGS_COUNT;
 
 const validateHashtagsUniqueness = (value) => {
   const hashtags = value.split(' ');
@@ -64,7 +65,7 @@ pristine.addValidator(
   'Ошибка хештега'
 );
 
-const validateDescription = (value) => value.trim().length <= 140;
+const validateDescription = (value) => value.trim().length <= MAX_DESCRIPTION_LENGTH;
 
 pristine.addValidator(
   descriptionField,
@@ -72,7 +73,7 @@ pristine.addValidator(
   'Описание не может быть больше 140 символов'
 );
 
-const closeOverlay = (evt) => {
+function closeOverlay(){
   imageOverlay.classList.add('hidden');
   document.body.classList.remove('modal-open');
   closeButton.removeEventListener('click', closeOverlay);
@@ -81,15 +82,15 @@ const closeOverlay = (evt) => {
   uploadInput.value = null;
   hashtagsField.textContent = '';
   descriptionField.textContent = '';
-};
+}
 
-const openOverlay = (evt) =>{
+function openOverlay() {
   imageOverlay.classList.remove('hidden');
   document.body.classList.add('modal-open');
   closeButton.addEventListener('click', closeOverlay);
   document.addEventListener('keydown', onDocumentKeydown(closeOverlay));
   uploadInput.removeEventListener('click', openOverlay);
-};
+}
 
 uploadInput.addEventListener('change', openOverlay);
 

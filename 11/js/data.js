@@ -6,6 +6,8 @@ const MIN_AVATAR_NUMBER = 1;
 const MAX_AVATAR_NUMBER = 1;
 const MIN_COMMENTS_COUNT = 0;
 const MAX_COMMENTS_COUNT = 30;
+const MAX_HASHTAGS_COUNT = 5;
+const MAX_DESCRIPTION_LENGTH = 140;
 
 
 export const authorNames = ['Иван', 'Анна', 'Петр', 'Мария', 'Алексей', 'Елена', 'Дмитрий', 'Ольга', 'Сергей', 'Наталья'];
@@ -67,4 +69,4 @@ export function generatePhotoArray(numPhotos) {
 
   return photoArray;
 }
-export {MIN_AVATAR_NUMBER, MAX_AVATAR_NUMBER};
+export {MIN_AVATAR_NUMBER, MAX_AVATAR_NUMBER, MAX_HASHTAGS_COUNT, MAX_DESCRIPTION_LENGTH};
