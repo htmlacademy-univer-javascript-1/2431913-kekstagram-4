@@ -17,3 +17,9 @@ export function getRandomPhotoDescription() {
   const randomIndex = getRandomNumber(0, photoDescriptions.length - 1);
   return photoDescriptions[randomIndex];
 }
+
+export const onDocumentKeydown = (evt, closingFunc) => {
+  if (evt.key === 'Escape') {
+    closingFunc(evt);
+  }
+};
