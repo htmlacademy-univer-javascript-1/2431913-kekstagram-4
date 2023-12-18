@@ -8,6 +8,7 @@ const uploadForm = document.querySelector('.img-upload__form');
 const uploadInput = uploadForm.querySelector('.img-upload__input');
 const imageOverlay = uploadForm.querySelector('.img-upload__overlay.hidden');
 const closeButton = uploadForm.querySelector('.img-upload__cancel');
+const image = uploadForm.querySelector('.img-upload__preview img');
 const hashtagsField = uploadForm.querySelector('.text__hashtags');
 const descriptionField = uploadForm.querySelector('.text__description');
 const submitBtn = uploadForm.querySelector('#upload-submit');
@@ -21,6 +22,18 @@ const pristine = new Pristine(uploadForm, {
   errorTextParent: 'img-upload__field-wrapper',
   errorTextTag: 'div',
   errorTextClass: 'img-upload__error'
+});
+
+
+uploadInput.addEventListener('change', function() {
+  const file = this.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.addEventListener('load', () => {
+      image.src = reader.result;
+    }, false);
+    reader.readAsDataURL(file);
+  }
 });
 
 const validateHashtagsCount = (value) => value.trim().split(' ').length <= MAX_HASHTAGS_COUNT;
@@ -102,7 +115,6 @@ function openOverlay() {
   closeButton.addEventListener('click', () => {resetForm(); closeOverlay();});
   document.addEventListener('keydown', onDocumentKeydown(closeOverlay));
   uploadInput.removeEventListener('click', openOverlay);
-
 }
 
 uploadInput.addEventListener('change', openOverlay);
@@ -111,7 +123,7 @@ hashtagsField.addEventListener('input', (evt) => {
   evt.preventDefault();
   const isValid = pristine.validate();
   if (!isValid) {
-    submitBtn.setAttribute('disabled', true);
+    submitBtn.setAttribute('disabled', 'true');
   }
   else{
     submitBtn.removeAttribute('disabled');
@@ -122,7 +134,7 @@ descriptionField.addEventListener('input', (evt) => {
   evt.preventDefault();
   const isValid = pristine.validate();
   if (!isValid) {
-    submitBtn.setAttribute('disabled', true);
+    submitBtn.setAttribute('disabled', 'true');
   }
   else{
     submitBtn.removeAttribute('disabled');
