@@ -1,9 +1,7 @@
 // Объявляем функцию для проверки длины строки
-// eslint-disable-next-line no-unused-vars
 function checkStringLength(str, maxLength) {
   return str.length <= maxLength;
 }
-// eslint-disable-next-line no-unused-vars
 function isPalindrome(str) {
   // Нормализуем строку: убираем пробелы и приводим к нижнему регистру
   const normalizedStr = str.replace(/\s/g, '').toLowerCase();
@@ -16,3 +14,5 @@ function isPalindrome(str) {
   // Сравниваем нормализованную строку с перевернутой версией
   return normalizedStr === reversedStr;
 }
+checkStringLength('12121', 6);
+isPalindrome('а роза упала на лапу азора');
